@@ -1,0 +1,47 @@
+/* styles.module.css */
+.app {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.fixedContainer {
+  position: relative;
+  display: inline;
+  flex-wrap: wrap;
+  height: 400px;
+  align-content: space-between;
+
+  width: 500px;
+  padding: 0 20px; /* настраиваемое значение */
+  background-color: #fff;
+}
+
+.todoInput {
+  margin-bottom: 20px;
+  width: 400px;
+  height: 30px;
+  background-color: rgb(150, 149, 147);
+}
+
+.todosContainer {
+  margin-top: 60px; /* Высота фиксированного контейнера + отступ сверху */
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  color: black;
+}
+
+.error {
+  color: red;
+}
