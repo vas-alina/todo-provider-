@@ -1,8 +1,7 @@
 
 import './App.css'
 // import { TodoOne } from './components/components-task-one/ToDo-list-one'
-import { TodoTwo } from './components/components-task-two/ToDo-list-two'
-// import { Todo2 } from './components/components-task-three/ToDo2'
+import { Todo } from './components/components-task-two/ToDo-list-two'
 function App() {
   
 
@@ -10,10 +9,9 @@ function App() {
   return (
     <>
       <div>
-        <h1>ToDo</h1>
+        <h1>Задачи</h1>
         <div className="main">
-          {/* <Todo2/> */}
-          <TodoTwo/>
+          <Todo/>
           {/* <TodoOne /> */}
         </div>
       </div>

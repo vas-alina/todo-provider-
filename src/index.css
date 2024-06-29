@@ -43,11 +43,12 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+  border: #aa1717;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #aa1717;
     background-color: #ffffff;
   }
   a:hover {
@@ -60,7 +61,7 @@ button:focus-visible {
 
 .input-item {
   display: flex;
-  border: 1px solid #aaa;
+  border: none;
   border-radius: 4px;
 }
 
