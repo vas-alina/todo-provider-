@@ -3,7 +3,8 @@ import styles from './ToDo-list-two.module.css';
 import { UseAddDeleteChangeTodos } from "../../hooks/useAddDeleteChangeTodos";
 import UseGetTodos from "../../hooks/useGetTodos";
 import { UseSortAndSearchTodos } from "../../hooks/useSortAndSearchTodos"; 
-
+import { TiSortAlphabeticallyOutline, TiSortNumericallyOutline, TiTick, TiPencil, TiTrash, TiTickOutline } from "react-icons/ti";
+import { IoSearch } from "react-icons/io5";
 export const Todo = () => {
     const [todo, setTodo] = useState('');
     
@@ -36,28 +37,37 @@ export const Todo = () => {
     };
    
       return (
-        <div className={styles.app}>
-            <div className={styles.fixedContainer}>
+        <div className={styles.mainContainer}>
+            <div className={styles.addTodoContainer}>
                 <input
-                    className={styles.todoInput}
+                    className={styles.addTodoInput}
                     value={todo}
                     onChange={(e) => setTodo(e.target.value)}
                     placeholder="Задача"
                 />
                 <button
+                className={styles.addTodoButton}
                     disabled={isLoading}
                     onClick={handleAdd}
                 >
-                    Добавить задачу
+                  <TiTick />
                 </button>
                 {isLoading && <p>Загрузка...</p>}
                 {error && <p className={styles.error}>Ошибка: {error}</p>}
             </div>
-            <div className={styles.todosContainer}>
-                <input type="text" value={search} onChange={handleSearchChange} />
-                <button onClick={toggleSortMode}>
-                    {isSorted ? 'Вернуть изначальный порядок' : 'Сортировать по алфавиту'}
+            <div className={styles.searchAndSortTodo}>
+            <IoSearch className={styles.icon}/>
+            <input 
+            
+                type="text" 
+                value={search} 
+                onChange={handleSearchChange} 
+                placeholder="Поиск по задачам"/>
+             <button onClick={toggleSortMode}>
+                {isSorted ? <TiSortNumericallyOutline className={styles.icon}/> : <TiSortAlphabeticallyOutline className={styles.icon} />}
                 </button>
+            </div>
+            <div className={styles.todosContainer}>
                 <div>
                     {displayedTodos.map((todo) => (
                         <div key={todo.id} className={styles.todoItem}>
@@ -70,7 +80,7 @@ export const Todo = () => {
                                         placeholder="Новый текст для задачи"
                                     />
                                     <button  className={styles.buttonSave} onClick={() => handleSave(todo.id)}>
-                                        Сохранить
+                                    <TiTickOutline className={styles.icon}/>
                                     </button>
                                 </>
                             ) : (
@@ -79,13 +89,14 @@ export const Todo = () => {
                                     <button onClick={
                                         () => {
                                 
-                                            toggleEdit(todo.id)}}>Редактировать</button>
-                                    <button onClick={() => handleDelete(todo.id)}>Удалить</button>
+                                            toggleEdit(todo.id)}}><TiPencil className={styles.icon}/></button>
+                                    <button onClick={() => handleDelete(todo.id)}><TiTrash className={styles.icon}/></button>
                                 </>
                             )}
                         </div>
                     ))}
                 </div>
+            
             </div>
         </div>
     );

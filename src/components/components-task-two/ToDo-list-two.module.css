@@ -1,6 +1,22 @@
-.app {
-  max-width: 700px;
-  margin: auto;
+.addTodoContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  border: #949393;
+}
+.addTodoInput {
+  flex-basis: 90%;
+}
+.addTodoButton {
+  flex-basis: 10%;
+  padding-left: 25px;
+}
+
+.mainContainer {
+  /* display: flex; */
+  width: 100%;
+  margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -17,39 +33,71 @@
   width: 500px;
   padding: 0 20px; /* настраиваемое значение */
 }
-
+.icon {
+  color: #212020;
+  font-size: 40px;
+}
 .todoInput {
   margin-bottom: 20px;
   width: 400px;
   height: 30px;
   background-color: rgb(205, 204, 202);
 }
+.searchAndSortTodo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  text-align: center;
+
+  :first-child {
+    flex-basis: 10%;
+    margin: 1px;
+  }
+  :last-child {
+    flex-basis: 10%;
+    padding-left: 10px;
+  }
+
+  :nth-child(2) {
+    flex-basis: 80%;
+  }
+}
 
 .todosContainer {
-  margin-top: 60px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+  height: 100%;
+
+  :nth-child(1) {
+    flex-basis: 100%;
+  }
 }
 
 .todoItem {
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  margin-bottom: 10px;
-  padding: 10px;
+  margin: 0px 0px 10px 0px;
+  padding: 5px;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
-  color: rgb(97, 48, 48);
-  text-align: center;
-}
-.toggleInput {
-  width: 400px;
-  height: 30px;
-  padding: 5px;
-  margin: 1px;
-  border: #fff;
-  background: #fff;
-  color: black;
-}
 
+  :nth-child(1) {
+    flex-basis: 80%;
+  }
+  :nth-child(2) {
+    flex-basis: 5%;
+    margin-right: 5px;
+  }
+  :nth-child(3) {
+    flex-basis: 5%;
+  }
+}
+.todoInput :active {
+  border: red;
+}
 .error {
   color: red;
 }
