@@ -11,6 +11,10 @@
 .addTodoButton {
   flex-basis: 10%;
   padding-left: 25px;
+  margin-left: 1px;
+}
+.buttonHome {
+  height: 100%;
 }
 
 .mainContainer {
@@ -35,6 +39,10 @@
 }
 .icon {
   color: #212020;
+  font-size: 40px;
+}
+.iconGo {
+  color: #0f0303;
   font-size: 40px;
 }
 .todoInput {
@@ -67,7 +75,7 @@
 
 .todosContainer {
   display: flex;
-  flex-wrap: nowrap;
+  /* flex-wrap: row nowrap; */
   margin-top: 10px;
   height: 100%;
 
@@ -76,27 +84,61 @@
   }
 }
 
+todoContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  height: 100%;
+}
+.todoItems {
+  display: flex;
+  align-items: stretch;
+  margin: 0px 0px 10px 0px;
+  padding: 5px;
+  border: 1px solid #861111;
+  border-radius: 4px;
+  font-size: 20px;
+
+  :nth-child(1) {
+    flex-basis: 90%;
+  }
+  :nth-child(2) {
+    flex-basis: 10%;
+    align-self: center;
+    margin: 0 auto;
+  }
+}
 .todoItem {
   display: flex;
-  justify-content: flex-end;
+  align-items: stretch;
   margin: 0px 0px 10px 0px;
   padding: 5px;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
 
   :nth-child(1) {
-    flex-basis: 80%;
+    flex-basis: 5%;
   }
   :nth-child(2) {
-    flex-basis: 5%;
+    flex-basis: 85%;
     margin-right: 5px;
   }
   :nth-child(3) {
     flex-basis: 5%;
   }
+  :nth-child(4) {
+    flex-basis: 5%;
+  }
 }
 .todoInput :active {
   border: red;
+}
+.todoText {
+  font-size: 25px;
+  padding: 10px;
+}
+todosText {
+  font-size: 15px;
 }
 .error {
   color: red;

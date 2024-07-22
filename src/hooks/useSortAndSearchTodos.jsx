@@ -5,9 +5,9 @@ export const UseSortAndSearchTodos = (todos, deleteTodo, changeTodo) => {
     const [search, setNewSearch] = useState("");
     const [editingTodoId, setEditingTodoId] = useState(null);
     const [localTitle, setLocalTitle] = useState("");
-    
-    const filteredTodos = todos.filter((todo) =>
-        search === "" || todo.title.toLowerCase().includes(search.toLowerCase())
+
+    const filteredTodos = todos.filter(todo =>
+        search === "" || (typeof todo.title === 'string' && todo.title.toLowerCase().includes(search.toLowerCase()))
     );
 
     const displayedTodos = isSorted
@@ -44,5 +44,3 @@ export const UseSortAndSearchTodos = (todos, deleteTodo, changeTodo) => {
     
     return { isSorted, setIsSorted, search, handleSearchChange, displayedTodos, toggleSortMode, toggleEdit, handleDelete, handleTitleChange, handleSave, editingTodoId };
 };
-
-// export default UseSortAndSearchTodos;

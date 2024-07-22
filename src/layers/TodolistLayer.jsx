@@ -1,42 +1,28 @@
-import { useEffect, useState } from "react";
-import styles from './ToDo-list-two.module.css';
-import { UseAddDeleteChangeTodos } from "../../hooks/useAddDeleteChangeTodos";
-import UseGetTodos from "../../hooks/useGetTodos";
-import { UseSortAndSearchTodos } from "../../hooks/useSortAndSearchTodos"; 
-import { TiSortAlphabeticallyOutline, TiSortNumericallyOutline, TiTick, TiPencil, TiTrash, TiTickOutline } from "react-icons/ti";
+import styles from '../styles/Todolist.module.css'
+import { TiTick, TiSortNumericallyOutline, TiSortAlphabeticallyOutline, TiPencil, TiTrash, TiTickOutline } from "react-icons/ti";
 import { IoSearch } from "react-icons/io5";
-export const Todo = () => {
-    const [todo, setTodo] = useState('');
-    
-    const { todos, fetchTodos, isLoading, error } = UseGetTodos();
-    const { addTodo, 
-        deleteTodo, 
-        changeTodo, 
-        updateChangeTodos, 
-        updateDeleteTodos, 
-        updateAddTodos } = UseAddDeleteChangeTodos();
-    const { isSorted, 
-        search, 
-        handleSearchChange, 
-        displayedTodos, 
-        toggleSortMode, 
-        toggleEdit, 
-        handleDelete, 
-        handleTitleChange, 
-        handleSave, 
-        editingTodoId } = UseSortAndSearchTodos(todos, deleteTodo, changeTodo);
-    
-    useEffect(() => {
-        fetchTodos();
-    }, [updateChangeTodos, updateDeleteTodos, updateAddTodos, fetchTodos]);
-    
-    const handleAdd = () => {
-        const newTodo = { title: todo, text: todo }; 
-        addTodo(newTodo); 
-        setTodo(""); 
-    };
+import useTodoContext from '../hooks/useTodoContext';
+
+const TodolistLayer = ( { 
+    isLoading,
+    error,
+    handleAdd,
+    search,
+    handleSearchChange,
+    isSorted,
+    toggleSortMode,
+    displayedTodos = [],
+    toggleEdit,
+    handleDelete,
+    handleTitleChange,
+    handleSave,
+    editingTodoId,}
    
-      return (
+) => {
+    const { todo, setTodo } = useTodoContext()
+    // console.log(todo, setTodo)
+    //console.log({ todo, setTodo, isLoading, error, handleAdd, search, handleSearchChange, isSorted, toggleSortMode, displayedTodos, toggleEdit, handleDelete, handleTitleChange, handleSave, editingTodoId });
+    return (
         <div className={styles.mainContainer}>
             <div className={styles.addTodoContainer}>
                 <input
@@ -101,3 +87,5 @@ export const Todo = () => {
         </div>
     );
 };
+
+export default TodolistLayer;

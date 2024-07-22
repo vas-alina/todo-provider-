@@ -1,7 +1,7 @@
 
 import './index.css'
-// import { TodoOne } from './components/components-task-one/ToDo-list-one'
-import { Todo } from './components/components-task-two/ToDo-list-two'
+import TodoContainer from './components/TodolistContainer'
+import { TodoProvider } from './providers/TodoProvider'
 function App() {
   
 
@@ -11,8 +11,10 @@ function App() {
       <div className='container'>
         <h1>TODO LIST</h1>
         <div className="main">
-          <Todo/>
-          {/* <TodoOne /> */}
+          
+          <TodoProvider>
+            <TodoContainer />
+          </TodoProvider>
         </div>
       </div>
      
